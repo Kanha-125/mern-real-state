@@ -9,5 +9,4 @@ router.post('/signin', signIn)
 router.post('/google', signTinGoogle)
 router.get('/signout', signOut)
 
-
 export default router;
