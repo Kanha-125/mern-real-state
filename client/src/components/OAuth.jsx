@@ -36,7 +36,7 @@ const OAuth = () => {
       }
 
       dispatch(signInSuccess(data));
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.log("error while google authentication", err);
     }

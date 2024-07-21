@@ -67,3 +67,12 @@ export const signTinGoogle = async (req, res, next) => {
     }
 }
 
+export const signOut = (req, res) => {
+    try {
+        res.clearCookie('access_token');
+        res.status(200).json({ success: true, message: 'User signed out successfully' });
+    }
+    catch (err) {
+        next(err)
+    }
+}
