@@ -116,12 +116,15 @@ const CreateListing = () => {
   const handleFormSubmit = async (e) => {
     setCreateListingLoading(true);
     e.preventDefault();
+    console.log(formData);
     if (formData?.imageUrls.length < 1 || formData.imageUrls.length > 6) {
       setCreateListingError('Please upload at least 1 and maximum 6 images');
+      setCreateListingLoading(false);
       return;
     }
     if (+formData.discountedPrice > +formData.regularPrice) {
       setCreateListingError('Discounted Price must be lower than regular price');
+      setCreateListingLoading(false);
       return;
     }
 
