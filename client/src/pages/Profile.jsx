@@ -247,7 +247,9 @@ const Profile = () => {
                 <button className="text-red-700 uppercase" onClick={() => handleListingDelete(listing._id)}>
                   Delete
                 </button>
-                <button className="text-green-700 uppercase">Edit</button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className="text-green-700 uppercase">Edit</button>
+                </Link>
               </div>
             </div>
           ))}
