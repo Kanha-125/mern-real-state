@@ -95,7 +95,7 @@ const CreateListing = () => {
   };
 
   const handleChangeInput = (e) => {
-    if (e.target.id === 'sell' || e.target.id === 'rent') {
+    if (e.target.id === 'sale' || e.target.id === 'rent') {
       setFormData({
         ...formData,
         type: e.target.id,
@@ -116,13 +116,13 @@ const CreateListing = () => {
   const handleFormSubmit = async (e) => {
     setCreateListingLoading(true);
     e.preventDefault();
-    console.log(formData);
+
     if (formData?.imageUrls.length < 1 || formData.imageUrls.length > 6) {
       setCreateListingError('Please upload at least 1 and maximum 6 images');
       setCreateListingLoading(false);
       return;
     }
-    if (+formData.discountedPrice > +formData.regularPrice) {
+    if (formData.offer && +formData.discountedPrice < +formData.regularPrice) {
       setCreateListingError('Discounted Price must be lower than regular price');
       setCreateListingLoading(false);
       return;
@@ -193,10 +193,10 @@ const CreateListing = () => {
             <div className="flex gap-2">
               <input
                 type="checkbox"
-                id="sell"
+                id="sale"
                 className="w-5"
                 onChange={handleChangeInput}
-                checked={formData.type === 'sell'}
+                checked={formData.type === 'sale'}
               />
               <span>Sell</span>
             </div>

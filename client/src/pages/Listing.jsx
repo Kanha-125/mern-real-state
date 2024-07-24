@@ -71,7 +71,7 @@ const Listing = () => {
             <p className="text-2xl font-semibold">
               {listing.name} - ${' '}
               {listing.offer
-                ? listing.discountPrice.toLocaleString('en-US')
+                ? listing.discountedPrice.toLocaleString('en-US')
                 : listing.regularPrice.toLocaleString('en-US')}
               {listing.type === 'rent' && ' / month'}
             </p>
