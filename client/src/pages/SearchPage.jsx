@@ -61,6 +61,8 @@ const SearchPage = () => {
         }
         if (data.length > 8) {
           setShowMore(true);
+        } else {
+          setShowMore(false);
         }
         setListings(data);
         setLoading(false);
@@ -101,7 +103,7 @@ const SearchPage = () => {
     const searchQuery = urlParams.toString();
 
     const response = await fetch(`/api/listing/get?${searchQuery}`);
-    const data = response.json();
+    const data = await response.json();
     if (data.length < 8) {
       setShowMore(false);
     } else {

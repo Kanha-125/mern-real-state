@@ -122,7 +122,7 @@ const CreateListing = () => {
       setCreateListingLoading(false);
       return;
     }
-    if (formData.offer && +formData.discountedPrice < +formData.regularPrice) {
+    if (formData.offer && +formData.discountedPrice > +formData.regularPrice) {
       setCreateListingError('Discounted Price must be lower than regular price');
       setCreateListingLoading(false);
       return;
